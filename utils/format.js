@@ -1,0 +1,4 @@
+export function msToDuration(ms){const total=Math.floor(ms/1000);const m=Math.floor(total/60);const s=total%60;return `${m}:${String(s).padStart(2,'0')}`;}
+export function sanitize(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+export function buildShareLinks(title,artist,spotifyUrl,youtubeUrl){const text=encodeURIComponent(`🎵 ${title} — ${artist}\nSpotify: ${spotifyUrl}\nYouTube: ${youtubeUrl}`);return{ios:`sms:&body=${text}`,whatsapp:`https://api.whatsapp.com/send?text=${text}`};}
+export function toCSV(rows){const header=['Track','Artist','Album','Duration_ms','Added','Spotify','YouTube'];const lines=[header.join(',')];for(const r of rows){const vals=[r.track,r.artist,r.album,String(r.duration_ms),r.added_at,r.spotify_url,r.youtube_url].map(v=>`"${String(v).replaceAll('"','""')}"`);lines.push(vals.join(','));}return lines.join('\n');}

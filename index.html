@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VINYL meets VIRAL — Liked Songs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>💿 VINYL meets VIRAL 💥</h1>
+    <p class="sub">Spotify Liked Songs (top 50)</p>
+  </header>
+
+  <main class="wrap">
+    <div id="auth">
+      <button id="loginBtn" class="btn">Sign in with Spotify</button>
+      <button id="logoutBtn" class="btn secondary" style="display:none">Log out</button>
+      <p id="authMsg" class="muted"></p>
+    </div>
+
+    <section id="tableSection" style="display:none">
+      <div class="tableActions">
+        <input id="search" placeholder="Filter by song or artist…" />
+        <select id="sortSelect">
+          <option value="date_desc">Sort: Date Added (newest)</option>
+          <option value="title_asc">Sort: Title A→Z</option>
+          <option value="title_desc">Sort: Title Z→A</option>
+        </select>
+        <button id="refreshBtn" class="btn small">Refresh</button>
+        <button id="downloadCsvBtn" class="btn small secondary">Download CSV</button>
+      </div>
+      <div id="tableMount"></div>
+    </section>
+  </main>
+
+  <footer class="wrap muted">
+    <p>Built for <strong>vinylmeetsviral.com</strong> — OAuth, dark mode table, and CSV export included in every build.</p>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
